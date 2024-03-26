@@ -1,46 +1,32 @@
-# fer
+# gomq
 
-[![GitHub release](https://img.shields.io/github/release/alice-go/fer.svg)](https://github.com/alice-go/fer/releases)
-[![GoDoc](https://godoc.org/github.com/alice-go/fer?status.svg)](https://godoc.org/github.com/alice-go/fer)
-[![Build Status](https://travis-ci.org/alice-go/fer.svg?branch=master)](https://travis-ci.org/alice-go/fer)
-[![codecov](https://codecov.io/gh/alice-go/fer/branch/master/graph/badge.svg)](https://codecov.io/gh/alice-go/fer)
-[![DOI](https://zenodo.org/badge/73269900.svg)](https://zenodo.org/badge/latestdoi/73269900)
+> FairMQ in Go
 
-`fer` is a simple reimplementation of [FairMQ](https://github.com/FairRootGroup/FairMQ) in [Go](https://golang.org).
-
-## License
-
-`fer` is released under the `BSD-3` license.
-
-## Installation
-
-`fer` is installable _via_ `go` `get`:
-
-```sh
-$> go get github.com/alice-go/fer/...
-```
-
-*NOTE:* you need at least `go1.7`.
-
-## Documentation
-
-Documentation is available on [godoc](https://godoc.org/github.com/alice-go/fer).
+This is a continued implementation of [fer](https://github.com/alice-go/fer/tree/master?tab=readme-ov-file) that is based off of [FairMQ](https://github.com/FairRootGroup/FairMQ). 
+The goal is to provide a message passing interface that is not MPI. This one uses ZeroMQ under the hood.
+I want something that can be used in cloud for distributed applications, and more easily than something that requires MPI.
+I am going to refactor the interface to be easy to use, and then generate some benchmarks for communication
+using it.
 
 ## Examples
 
-### Testing example-2 from FairMQ tutorial
+See the [examples](examples) directory. I'm going to be implementing examples from [FairMQ](https://github.com/FairRootGroup/FairMQ/tree/master/examples) and then some benchmarks
+that will give us a sense of latency, etc.
 
-```sh
-## terminal 1
-$> fer-ex-sink --id sink1 --mq-config ./_example/cmd/testdata/ex2-sampler-processor-sink.json
+## License
 
-## terminal 2
-$> fer-ex-processor --id processor --mq-config ./_example/cmd/testdata/ex2-sampler-processor-sink.json
+The original code "fer" is released under the `BSD-3` license, which is [included here](.github/LICENSE) per directive of the license.
+I give sincere thank you to the original author [Sebastian Binet](https://github.com/sbinet) that was an early advocate
+for distributed applications with Go, who I first interacted with in this [GitHub issue](https://github.com/go-hep/hep/issues/1010).
+We are providing now under an MIT license, which seems [OK to do](https://opensource.stackexchange.com/a/10687) as long as the original license is preserved.
 
-## terminal 3
-$> fer-ex-sampler --id sampler1 --mq-config ./_example/cmd/testdata/ex2-sampler-processor-sink.json
-```
+HPCIC DevTools is distributed under the terms of the MIT license.
+All new contributions must be made under this license.
 
-This will run 3 devices, using the `ZeroMQ` transport.
+See [LICENSE](https://github.com/converged-computing/cloud-select/blob/main/LICENSE),
+[COPYRIGHT](https://github.com/converged-computing/cloud-select/blob/main/COPYRIGHT), and
+[NOTICE](https://github.com/converged-computing/cloud-select/blob/main/NOTICE) for details.
 
-To run with `nanomsg` as a transport layer, add `--transport nanomsg` to the invocations.
+SPDX-License-Identifier: (MIT)
+
+LLNL-CODE- 842614

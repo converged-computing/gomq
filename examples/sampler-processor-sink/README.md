@@ -5,7 +5,7 @@ This start with a config file, [sampler-processor-sink.json](sampler-processor-s
 can validate as such:
 
 ```bash
-go run ./cmd/validate/main.go ./examples/netmark/sampler-processor-sink.json 
+go run ./cmd/validate/main.go ./examples/sampler-processor-sink/sampler-processor-sink.json 
 $ echo $?
 0
 ```
